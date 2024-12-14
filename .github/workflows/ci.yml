@@ -20,7 +20,14 @@ jobs:
           pip install -r requirements.txt
       
       - name: Run tests
-        run: pytest
+        run: |
+          pytest --html=report_312.html --self-contained-html
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-312
+          path: report_312.html
 
   my_second_job:
     needs: my_first_job
@@ -39,4 +46,11 @@ jobs:
           pip install -r requirements.txt
       
       - name: Run tests (3.13)
-        run: pytest
+        run: |
+          pytest --html=report_313.html --self-contained-html
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-313
+          path: report_313.html
