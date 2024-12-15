@@ -1,10 +1,5 @@
 pipeline {
-    // agent {
-    //     docker {
-    //         image 'python:3.13.1'
-    //         args '-u root:root'
-    //     }
-    // }
+    agent none
     stages {
         stage('Parallel Testing') {
             parallel {
