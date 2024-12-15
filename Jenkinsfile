@@ -1,5 +1,6 @@
 pipeline {
     agent none
+    
     stages {
         stage('Parallel Testing') {
             parallel {
@@ -16,22 +17,24 @@ pipeline {
                         sh 'pip install -r requirements.txt'
                         sh 'pytest --html=report_313.html --self-contained-html'
                     }
-                    always {
-                        publishHTML([
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: true,
-                            keepAll: true,
-                            reportDir: '.',
-                            reportFiles: 'report_313.html',
-                            reportName: 'Python 3.13 Test Report'
-                        ])
+                    post {
+                        always {
+                            publishHTML([
+                                allowMissing: false,
+                                alwaysLinkToLastBuild: true,
+                                keepAll: true,
+                                reportDir: '.',
+                                reportFiles: 'report_313.html',
+                                reportName: 'Python 3.13 Test Report'
+                            ])
+                        }
                     }
                 }
                 
                 stage('Python 3.12 Tests') {
                     agent {
                         docker {
-                            image 'python:3.12'
+                            image 'python:3.12.2'
                             args '-u root:root'
                         }
                     }
@@ -41,15 +44,17 @@ pipeline {
                         sh 'pip install -r requirements.txt'
                         sh 'pytest --html=report_312.html --self-contained-html'
                     }
-                    always {
-                        publishHTML([
-                            allowMissing: false,
-                            alwaysLinkToLastBuild: true,
-                            keepAll: true,
-                            reportDir: '.',
-                            reportFiles: 'report_312.html',
-                            reportName: 'Python 3.12 Test Report'
-                        ])
+                    post {
+                        always {
+                            publishHTML([
+                                allowMissing: false,
+                                alwaysLinkToLastBuild: true,
+                                keepAll: true,
+                                reportDir: '.',
+                                reportFiles: 'report_312.html',
+                                reportName: 'Python 3.12 Test Report'
+                            ])
+                        }
                     }
                 }
             }
