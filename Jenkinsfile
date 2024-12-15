@@ -1,14 +1,20 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.13.1'
-            args '-u root:root'
-        }
-    }
+    // agent {
+    //     docker {
+    //         image 'python:3.13.1'
+    //         args '-u root:root'
+    //     }
+    // }
     stages {
         stage('Parallel Testing') {
             parallel {
                 stage('Python 3.13 Tests') {
+                    agent {
+                        docker {
+                            image 'python:3.13.1'
+                            args '-u root:root'
+                        }
+                    }
                     steps {
                         sh 'python -m venv .venv_313'
                         sh '. .venv_313/bin/activate'
@@ -18,6 +24,12 @@ pipeline {
                 }
                 
                 stage('Python 3.12 Tests') {
+                    agent {
+                        docker {
+                            image 'python:3.12'
+                            args '-u root:root'
+                        }
+                    }
                     steps {
                         sh 'python -m venv .venv_312'
                         sh '. .venv_312/bin/activate'
