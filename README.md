@@ -83,7 +83,15 @@ pytest
 
 ### GitHub Actions
 
-GitHub Actions will automatically run all tests on each pull request or push to the repository, providing instant feedback and build status. The workflow configuration can be found under `.github/workflows/`.
+GitHub Actions will automatically run all tests on each pull request or push to the repository, providing instant feedback and build status. 
+
+The workflow configuration can be found under `.github/workflows/`.
+
+All workflow runs and their details here:
+https://github.com/gomczak/python-api-tests-requests/actions
+
+The last published test report is available on GitHub Pages at:
+https://gomczak.github.io/python-api-tests-requests/?sort=result
 
 ### Jenkins
 
