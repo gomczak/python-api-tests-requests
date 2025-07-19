@@ -87,11 +87,10 @@ GitHub Actions will automatically run all tests on each pull request or push to 
 
 The workflow configuration can be found under `.github/workflows/`.
 
-All workflow runs and their details here:
-https://github.com/gomczak/python-api-tests-requests/actions
+All workflow runs and their details **[here](https://github.com/gomczak/python-api-tests-requests/actions)**.
 
-The last published test report is available on GitHub Pages at:
-https://gomczak.github.io/python-api-tests-requests/?sort=result
+The last published test report is available on **[GitHub Pages](https://gomczak.github.io/python-api-tests-requests/?sort=result)**.
+
 
 ### Jenkins
 
@@ -99,6 +98,6 @@ A Jenkinsfile is provided for configuring Jenkins as an alternative or additiona
 
 ## Notes
 
-- All tests are for demonstration and learning (API provided by [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/).
+- All tests are for demonstration and learning (API provided by [JSONPlaceholder](https://jsonplaceholder.typicode.com/)).
 - Generated test cases may require adaptation for real-world APIs or systems.
 
